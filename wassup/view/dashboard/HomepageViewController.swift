@@ -7,30 +7,43 @@
 
 import UIKit
 
-class HomepageViewController: UIViewController {
+class HomepageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let authViewModel = AuthViewModel()
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newChatButtonClicked))
     }
+    
+    @objc func newChatButtonClicked(){}
     
     @IBAction func logoutButtonClicked(_ sender: Any) {
         do {
-          try  authViewModel.logout()
+            try  authViewModel.logout()
         } catch {
             print(error)
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        cell.profileImageView.image = UIImage(named: "person.png")
+        cell.profileImageView.layer.masksToBounds = false
+        cell.profileImageView.layer.cornerRadius = 58/2
+        cell.profileImageView.clipsToBounds = true
+        cell.profileImageView.layer.backgroundColor = UIColor.lightGray.cgColor
+        return cell
+    }
+    
 }
