@@ -1,0 +1,27 @@
+name: Ensure Commits are in Dev
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-dev-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check if commits exist in dev branch
+      run: |
+        # Get the commits in the current PR
+        commits_in_pr=$(git log --format="%H" origin/main ^origin/dev)
+
+        if [ -n "$commits_in_pr" ]; then
+          echo "The following commits are not in the dev branch:"
+          echo "$commits_in_pr"
+          exit 1
+        else
+          echo "All commits in this PR exist in the dev branch."
+        fi
