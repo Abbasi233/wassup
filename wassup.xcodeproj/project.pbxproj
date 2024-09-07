@@ -12,7 +12,7 @@
 		DC0176812C8507EA008B2885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC01767E2C8507EA008B2885 /* GoogleService-Info.plist */; };
 		DC1DE14D2C84A9710062F9D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE14C2C84A9710062F9D8 /* AppDelegate.swift */; };
 		DC1DE14F2C84A9710062F9D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE14E2C84A9710062F9D8 /* SceneDelegate.swift */; };
-		DC1DE1512C84A9710062F9D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1502C84A9710062F9D8 /* ViewController.swift */; };
+		DC1DE1512C84A9710062F9D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1502C84A9710062F9D8 /* LoginViewController.swift */; };
 		DC1DE1542C84A9710062F9D8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DC1DE1532C84A9710062F9D8 /* Base */; };
 		DC1DE1572C84A9710062F9D8 /* wassup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1552C84A9710062F9D8 /* wassup.xcdatamodeld */; };
 		DC1DE1592C84A9720062F9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1DE1582C84A9720062F9D8 /* Assets.xcassets */; };
@@ -24,6 +24,12 @@
 		DC24A7F32C850D46009770F8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F22C850D46009770F8 /* FirebaseFirestore */; };
 		DC24A7F52C850D46009770F8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F42C850D46009770F8 /* FirebaseMessaging */; };
 		DC24A7F72C850D46009770F8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F62C850D46009770F8 /* FirebaseStorage */; };
+		DC27033A2C8BAAC600A36D13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2703392C8BAAC600A36D13 /* User.swift */; };
+		DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */; };
+		DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */; };
+		DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */; };
+		DC5CCC1A2C8CDFA6000BF6E1 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC192C8CDFA6000BF6E1 /* HomepageViewController.swift */; };
+		DC68955D2C85F7E300500E2D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68955C2C85F7E300500E2D /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +54,7 @@
 		DC1DE1492C84A9710062F9D8 /* wassup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wassup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1DE14C2C84A9710062F9D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC1DE14E2C84A9710062F9D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DC1DE1502C84A9710062F9D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC1DE1502C84A9710062F9D8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DC1DE1532C84A9710062F9D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC1DE1562C84A9710062F9D8 /* wassup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wassup.xcdatamodel; sourceTree = "<group>"; };
 		DC1DE1582C84A9720062F9D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +65,12 @@
 		DC1DE16C2C84A9720062F9D8 /* wassupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wassupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1DE1702C84A9720062F9D8 /* wassupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITests.swift; sourceTree = "<group>"; };
 		DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DC2703392C8BAAC600A36D13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
+		DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
+		DC5CCC192C8CDFA6000BF6E1 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
+		DC68955C2C85F7E300500E2D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +125,12 @@
 		DC1DE14B2C84A9710062F9D8 /* wassup */ = {
 			isa = PBXGroup;
 			children = (
+				DC5CCC142C8CD2EA000BF6E1 /* view */,
+				DC5CCC0F2C8C875D000BF6E1 /* utils */,
+				DC27033B2C8BABEB00A36D13 /* viewModel */,
+				DC2703382C8BAAA100A36D13 /* model */,
 				DC1DE14C2C84A9710062F9D8 /* AppDelegate.swift */,
 				DC1DE14E2C84A9710062F9D8 /* SceneDelegate.swift */,
-				DC1DE1502C84A9710062F9D8 /* ViewController.swift */,
 				DC1DE1522C84A9710062F9D8 /* Main.storyboard */,
 				DC1DE1582C84A9720062F9D8 /* Assets.xcassets */,
 				DC1DE15A2C84A9720062F9D8 /* LaunchScreen.storyboard */,
@@ -141,6 +156,57 @@
 				DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */,
 			);
 			path = wassupUITests;
+			sourceTree = "<group>";
+		};
+		DC2703382C8BAAA100A36D13 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DC2703392C8BAAC600A36D13 /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DC27033B2C8BABEB00A36D13 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DC68955C2C85F7E300500E2D /* AuthViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		DC5CCC0F2C8C875D000BF6E1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		DC5CCC142C8CD2EA000BF6E1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DC5CCC182C8CDEF3000BF6E1 /* dashboard */,
+				DC5CCC152C8CD309000BF6E1 /* auth */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DC5CCC152C8CD309000BF6E1 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC1DE1502C84A9710062F9D8 /* LoginViewController.swift */,
+				DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		DC5CCC182C8CDEF3000BF6E1 /* dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
+				DC5CCC192C8CDFA6000BF6E1 /* HomepageViewController.swift */,
+			);
+			path = dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,9 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC1DE1512C84A9710062F9D8 /* ViewController.swift in Sources */,
+				DC1DE1512C84A9710062F9D8 /* LoginViewController.swift in Sources */,
+				DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */,
 				DC1DE14D2C84A9710062F9D8 /* AppDelegate.swift in Sources */,
+				DC27033A2C8BAAC600A36D13 /* User.swift in Sources */,
+				DC5CCC1A2C8CDFA6000BF6E1 /* HomepageViewController.swift in Sources */,
+				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
+				DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */,
 				DC1DE1572C84A9710062F9D8 /* wassup.xcdatamodeld in Sources */,
+				DC68955D2C85F7E300500E2D /* AuthViewModel.swift in Sources */,
 				DC1DE14F2C84A9710062F9D8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
