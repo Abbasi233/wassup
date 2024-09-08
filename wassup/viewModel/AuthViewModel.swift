@@ -46,7 +46,7 @@ class AuthViewModel {
                         uid: uid,
                         email: email,
                         profileImage: "",
-                        createdDate: Date()
+                        createdAt: Date()
                     ).toJson()
                 )
             print("Document successfully written!")

@@ -11,14 +11,14 @@ struct User: Equatable {
     let uid: String
     let email: String
     let profileImage: String
-    let createdDate: Date
+    let createdAt: Date
     
     func toJson() -> [String : Any] {
         return [
             "uid": uid,
             "email": email,
             "profileImage": profileImage,
-            "createdDate": createdDate
+            "createdAt": createdAt
         ]
     }
 
@@ -27,7 +27,7 @@ struct User: Equatable {
             uid: uid,
             email: email,
             profileImage: profileImage,
-            createdDate: createdDate
+            createdAt: createdAt
         )
     }
     

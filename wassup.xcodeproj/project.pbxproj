@@ -32,6 +32,8 @@
 		DC5CCC1D2C8CF6DF000BF6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC5CCC1C2C8CF6DF000BF6E1 /* Kingfisher */; };
 		DC5CCC1F2C8CFA8C000BF6E1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC1E2C8CFA8C000BF6E1 /* ChatCell.swift */; };
 		DC68955D2C85F7E300500E2D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68955C2C85F7E300500E2D /* AuthViewModel.swift */; };
+		DC9DD2EF2C8D84C90002F526 /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2EE2C8D84C90002F526 /* HomepageViewModel.swift */; };
+		DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		DC5CCC192C8CDFA6000BF6E1 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		DC5CCC1E2C8CFA8C000BF6E1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DC68955C2C85F7E300500E2D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		DC9DD2EE2C8D84C90002F526 /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
+		DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				DC2703392C8BAAC600A36D13 /* User.swift */,
+				DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				DC68955C2C85F7E300500E2D /* AuthViewModel.swift */,
+				DC9DD2EE2C8D84C90002F526 /* HomepageViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -363,7 +369,9 @@
 				DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */,
 				DC5CCC1F2C8CFA8C000BF6E1 /* ChatCell.swift in Sources */,
 				DC1DE14D2C84A9710062F9D8 /* AppDelegate.swift in Sources */,
+				DC9DD2EF2C8D84C90002F526 /* HomepageViewModel.swift in Sources */,
 				DC27033A2C8BAAC600A36D13 /* User.swift in Sources */,
+				DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */,
 				DC5CCC1A2C8CDFA6000BF6E1 /* HomepageViewController.swift in Sources */,
 				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
 				DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */,
