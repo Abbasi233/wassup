@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let authViewModel = AuthViewModel()
+    let authViewModel = AuthVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()

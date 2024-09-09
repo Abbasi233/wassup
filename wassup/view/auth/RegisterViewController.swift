@@ -14,7 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordAgainTextField: UITextField!
     
-    private let authViewModel = AuthViewModel()
+    private let authViewModel = AuthVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()

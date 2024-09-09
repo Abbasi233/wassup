@@ -9,9 +9,9 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class AuthViewModel {
+class AuthVM {
     
-    func AuthViewModel() {}
+    func AuthVM() {}
     
     let auth = Auth.auth()
     let db = Firestore.firestore()
@@ -55,8 +55,12 @@ class AuthViewModel {
         }
     }
     
-    func logout() throws {
-        try auth.signOut()
+    func logout() {
+        do {
+            try auth.signOut()
+        } catch {
+            print(error)
+        }
     }
     
 }

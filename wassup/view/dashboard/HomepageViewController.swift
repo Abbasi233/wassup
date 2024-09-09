@@ -11,8 +11,8 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    let authViewModel = AuthViewModel()
-    let homepageViewModel = HomepageViewModel()
+    let authViewModel = AuthVM()
+    let homepageViewModel = HomepageVM()
     
     var chatList = [ChatMetadata]()
     
@@ -22,23 +22,17 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        Task {
-            chatList = await homepageViewModel.getChats(uid: authViewModel.auth.currentUser!.uid)
-            tableView.reloadData()
-        }
+        homepageViewModel.getChats(uid: authViewModel.auth.currentUser!.uid, complation: { chatList in
+            self.chatList = chatList
+            self.tableView.reloadData()
+        })
+        
+        homepageViewModel.listenChats(uid: authViewModel.auth.currentUser!.uid)
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newChatButtonClicked))
     }
     
     @objc func newChatButtonClicked(){}
-    
-    @IBAction func logoutButtonClicked(_ sender: Any) {
-        do {
-            try  authViewModel.logout()
-        } catch {
-            print(error)
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatList.count
@@ -59,6 +53,9 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
         cell.profileImageView.clipsToBounds = true
         cell.profileImageView.layer.backgroundColor = UIColor.systemGray5.cgColor
         
+        cell.onClick = {
+            self.performSegue(withIdentifier: "ChatPageSegue", sender: self)
+        }
         return cell
     }
     
