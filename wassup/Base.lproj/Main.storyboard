@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="2442" y="326"/>
         </scene>
-        <!--Chats-->
+        <!--Wassup 🤙🏾-->
         <scene sceneID="Qzw-vt-RcZ">
             <objects>
                 <viewController id="LCf-Jn-MZ1" customClass="HomepageViewController" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="abd-BK-1DW">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="80" id="6nA-As-xaM" customClass="ChatCell" customModule="wassup" customModuleProvider="target">
@@ -217,90 +217,43 @@
                     <tabBarItem key="tabBarItem" title="Chats" id="szN-Kr-GKf">
                         <imageReference key="image" image="bubble.fill" catalog="system" symbolScale="default" variableValue="0.80000000000000004"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" title="Wassup 🤙🏾" id="nbu-IB-hfQ"/>
                     <connections>
                         <outlet property="tableView" destination="abd-BK-1DW" id="tbQ-wa-Vsr"/>
-                        <segue destination="c2d-WS-78p" kind="presentation" identifier="ChatPageSegue" modalPresentationStyle="fullScreen" id="VdG-Ud-iLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jd-0z-xK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441.9847328244273" y="-338.02816901408454"/>
+            <point key="canvasLocation" x="3352" y="-392"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="GAd-Ad-Im8">
-            <objects>
-                <tableViewController id="dYZ-Fx-dtn" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Og4-FC-nNG">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="jJY-tu-Vvj">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" id="JFU-ST-Z4a">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1e-NP-oZf">
-                                            <rect key="frame" x="168" y="12" width="42" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <viewLayoutGuide key="safeArea" id="g54-A4-GUw"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="z1e-NP-oZf" firstAttribute="centerY" secondItem="JFU-ST-Z4a" secondAttribute="centerY" id="6xB-GP-E1x"/>
-                                        <constraint firstItem="z1e-NP-oZf" firstAttribute="top" secondItem="g54-A4-GUw" secondAttribute="top" constant="12" id="DsL-79-z9D"/>
-                                        <constraint firstItem="z1e-NP-oZf" firstAttribute="leading" secondItem="g54-A4-GUw" secondAttribute="leading" constant="168" id="rCT-Qm-nLf"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <viewLayoutGuide key="safeArea" id="lYn-Tz-sUB"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                        <connections>
-                            <outlet property="dataSource" destination="dYZ-Fx-dtn" id="iW2-Kh-wfN"/>
-                            <outlet property="delegate" destination="dYZ-Fx-dtn" id="d0Z-Q2-nPa"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="DFa-8u-qCj">
-                        <barButtonItem key="backBarButtonItem" title="&lt;" id="BRN-yp-3bD"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bP1-g7-LKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4142.7480916030536" y="-338.02816901408454"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="bLA-rA-KT7">
             <objects>
-                <navigationController storyboardIdentifier="ChatPageNC" id="c2d-WS-78p" sceneMemberID="viewController">
+                <navigationController id="c2d-WS-78p" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Jns-Fm-KAq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JYH-BX-HzI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dYZ-Fx-dtn" kind="relationship" relationship="rootViewController" id="nMx-pL-1g0"/>
+                        <segue destination="LCf-Jn-MZ1" kind="relationship" relationship="rootViewController" id="I40-b0-V8x"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVu-vu-bMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3240" y="-338"/>
+            <point key="canvasLocation" x="2442" y="-392"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Dashboard Tab Bar Controller-->
         <scene sceneID="8ff-Wg-ZIc">
             <objects>
-                <tabBarController storyboardIdentifier="DashboardTBC" id="hyW-91-bfD" customClass="DashboardViewController" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DashboardTBC" id="hyW-91-bfD" customClass="DashboardTabBarController" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l7d-U1-2Zw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="LCf-Jn-MZ1" kind="relationship" relationship="viewControllers" id="Ebm-MS-cyZ"/>
+                        <segue destination="c2d-WS-78p" kind="relationship" relationship="viewControllers" id="epq-u7-lym"/>
                         <segue destination="8RJ-ow-ES1" kind="relationship" relationship="viewControllers" id="KeB-t6-ODI"/>
                     </connections>
                 </tabBarController>
