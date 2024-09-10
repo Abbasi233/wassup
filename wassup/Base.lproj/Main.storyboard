@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="2442" y="326"/>
         </scene>
-        <!--Wassup 🤙🏾-->
+        <!--Chat List-->
         <scene sceneID="Qzw-vt-RcZ">
             <objects>
-                <viewController id="LCf-Jn-MZ1" customClass="HomepageViewController" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LCf-Jn-MZ1" customClass="HomepageVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4kd-Mw-lsZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,14 +217,37 @@
                     <tabBarItem key="tabBarItem" title="Chats" id="szN-Kr-GKf">
                         <imageReference key="image" image="bubble.fill" catalog="system" symbolScale="default" variableValue="0.80000000000000004"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Wassup 🤙🏾" id="nbu-IB-hfQ"/>
+                    <navigationItem key="navigationItem" title="Chat List" id="nbu-IB-hfQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mOQ-ZQ-VHd">
+                            <connections>
+                                <action selector="newChatButtonClicked:" destination="LCf-Jn-MZ1" id="ziP-aE-DGN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="abd-BK-1DW" id="tbQ-wa-Vsr"/>
+                        <segue destination="Tg4-0Q-sss" kind="show" identifier="ChatPageSegue" id="CB1-OO-jGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jd-0z-xK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352" y="-392"/>
+            <point key="canvasLocation" x="3305" y="-392"/>
+        </scene>
+        <!--Chat PageVC-->
+        <scene sceneID="KjT-hR-BiI">
+            <objects>
+                <viewController id="Tg4-0Q-sss" customClass="ChatPageVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MJX-it-EEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SqX-6D-7JN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lMV-MH-kbe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wj-xe-o2c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4137" y="-392"/>
         </scene>
         <!--Item-->
         <scene sceneID="bLA-rA-KT7">

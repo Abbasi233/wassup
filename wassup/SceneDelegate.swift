@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         authStateListener = authViewModel.auth.addStateDidChangeListener { auth, user in
             print("Auth: \(auth)")
-            print("User: \(user)")
+            print("User: \(String(describing: user))")
             
             if user != nil {
                 viewController = board.instantiateViewController(identifier: "DashboardTBC") as UITabBarController

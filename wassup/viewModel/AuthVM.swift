@@ -27,8 +27,8 @@ class AuthVM {
         print("Password: \(password)")
             
         auth.createUser(withEmail: email, password: password) { authResult, error in
-            print("AuthResult: \(authResult)")
-            print("Error: \(error)")
+            print("AuthResult: \(String(describing: authResult))")
+            print("Error: \(String(describing: error))")
             
             if authResult != nil {
                 Task {
