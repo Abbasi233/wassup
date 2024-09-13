@@ -31,6 +31,11 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         homepageViewModel.listenChats(uid: authViewModel.auth.currentUser!.uid)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    
     @IBAction func newChatButtonClicked(_ sender: Any) {
         print("newChat")
     }
@@ -38,7 +43,7 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return chatList.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListItemCell", for: indexPath) as! ChatListItemCell
         
         cell.chatName.text = chatList[indexPath.row].members.first(where: { uid in
             uid != authViewModel.auth.currentUser!.uid
@@ -61,7 +66,6 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(selectedChat!.docId)
         let vc = segue.destination as! ChatPageVC
         vc.chatMetadata = selectedChat!
     }

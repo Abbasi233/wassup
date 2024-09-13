@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        authViewModel.register(email: email, fullName: fullName, password: password)
+        authViewModel.register(email: email, fullname: fullName, password: password)
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {

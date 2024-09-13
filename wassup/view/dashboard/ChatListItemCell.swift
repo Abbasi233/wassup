@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatCell: UITableViewCell {
+class ChatListItemCell: UITableViewCell {
     
     @IBOutlet weak var chatName: UILabel!
     @IBOutlet weak var lastMessage: UILabel!

@@ -13,15 +13,15 @@ class HomepageVM {
     private let db = Firestore.firestore()
     
     func getChats(uid: String) async -> [ChatMetadata] {
-        var chats: QuerySnapshot?
+        var snapshot: QuerySnapshot?
         
         do {
-            chats  = try await db.collection("Chats").whereField("members", arrayContains: uid).getDocuments()
+            snapshot  = try await db.collection("Chats").whereField("members", arrayContains: uid).getDocuments()
         } catch {
             print(error)
         }
         
-        return chats!.documents.map { snapshot in
+        return snapshot!.documents.map { snapshot in
             return ChatMetadata.fromJson(docId: snapshot.documentID, json: snapshot.data())
         }
     }

@@ -22,7 +22,7 @@ class AuthVM {
         auth.signIn(withEmail: email, password: password)
     }
     
-    func register(email: String, fullName: String, password: String) {
+    func register(email: String, fullname: String, password: String) {
         print("Email: \(email)")
         print("Password: \(password)")
             
@@ -32,19 +32,20 @@ class AuthVM {
             
             if authResult != nil {
                 Task {
-                    await self.createUserDoc(uid: authResult!.user.uid, email: email)
+                    await self.createUserDoc(uid: authResult!.user.uid, email: email, fullname: fullname)
                 }
             }
         }
     }
     
-    private func createUserDoc(uid: String, email: String) async {
+    private func createUserDoc(uid: String, email: String, fullname: String) async {
         do {
             try await db.collection("Users").document(uid)
                 .setData(
                     User(
                         uid: uid,
                         email: email,
+                        fullname: fullname,
                         profileImage: "",
                         createdAt: Date()
                     ).toJson()

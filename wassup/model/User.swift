@@ -10,6 +10,7 @@ import Foundation
 struct User: Equatable {
     let uid: String
     let email: String
+    let fullname: String
     let profileImage: String
     let createdAt: Date
     
@@ -17,6 +18,7 @@ struct User: Equatable {
         return [
             "uid": uid,
             "email": email,
+            "fullname": fullname,
             "profileImage": profileImage,
             "createdAt": createdAt
         ]
@@ -26,6 +28,7 @@ struct User: Equatable {
         return User(
             uid: uid,
             email: email,
+            fullname: fullname,
             profileImage: profileImage,
             createdAt: createdAt
         )

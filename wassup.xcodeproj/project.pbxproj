@@ -25,13 +25,16 @@
 		DC24A7F52C850D46009770F8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F42C850D46009770F8 /* FirebaseMessaging */; };
 		DC24A7F72C850D46009770F8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F62C850D46009770F8 /* FirebaseStorage */; };
 		DC27033A2C8BAAC600A36D13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2703392C8BAAC600A36D13 /* User.swift */; };
+		DC4DBC612C909B6D005772AE /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */; };
 		DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */; };
 		DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */; };
 		DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */; };
 		DC5CCC1A2C8CDFA6000BF6E1 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC192C8CDFA6000BF6E1 /* HomepageVC.swift */; };
 		DC5CCC1D2C8CF6DF000BF6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC5CCC1C2C8CF6DF000BF6E1 /* Kingfisher */; };
-		DC5CCC1F2C8CFA8C000BF6E1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC1E2C8CFA8C000BF6E1 /* ChatCell.swift */; };
+		DC5CCC1F2C8CFA8C000BF6E1 /* ChatListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */; };
 		DC68955D2C85F7E300500E2D /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68955C2C85F7E300500E2D /* AuthVM.swift */; };
+		DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */; };
+		DC851A0B2C92E80600D75659 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC851A0A2C92E80600D75659 /* ChatVM.swift */; };
 		DC9DD2EF2C8D84C90002F526 /* HomepageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2EE2C8D84C90002F526 /* HomepageVM.swift */; };
 		DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */; };
 		DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */; };
@@ -72,12 +75,15 @@
 		DC1DE1702C84A9720062F9D8 /* wassupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITests.swift; sourceTree = "<group>"; };
 		DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC2703392C8BAAC600A36D13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
 		DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		DC5CCC192C8CDFA6000BF6E1 /* HomepageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVC.swift; sourceTree = "<group>"; };
-		DC5CCC1E2C8CFA8C000BF6E1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItemCell.swift; sourceTree = "<group>"; };
 		DC68955C2C85F7E300500E2D /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
+		DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		DC851A0A2C92E80600D75659 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
 		DC9DD2EE2C8D84C90002F526 /* HomepageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVM.swift; sourceTree = "<group>"; };
 		DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMetadata.swift; sourceTree = "<group>"; };
 		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 			children = (
 				DC2703392C8BAAC600A36D13 /* User.swift */,
 				DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */,
+				DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 			children = (
 				DC68955C2C85F7E300500E2D /* AuthVM.swift */,
 				DC9DD2EE2C8D84C90002F526 /* HomepageVM.swift */,
+				DC851A0A2C92E80600D75659 /* ChatVM.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -219,9 +227,10 @@
 			children = (
 				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
 				DC5CCC192C8CDFA6000BF6E1 /* HomepageVC.swift */,
-				DC5CCC1E2C8CFA8C000BF6E1 /* ChatCell.swift */,
+				DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */,
 				DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */,
 				DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */,
+				DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */,
 			);
 			path = dashboard;
 			sourceTree = "<group>";
@@ -371,9 +380,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC851A0B2C92E80600D75659 /* ChatVM.swift in Sources */,
+				DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */,
 				DC1DE1512C84A9710062F9D8 /* LoginViewController.swift in Sources */,
 				DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */,
-				DC5CCC1F2C8CFA8C000BF6E1 /* ChatCell.swift in Sources */,
+				DC5CCC1F2C8CFA8C000BF6E1 /* ChatListItemCell.swift in Sources */,
 				DC1DE14D2C84A9710062F9D8 /* AppDelegate.swift in Sources */,
 				DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */,
 				DC9DD2EF2C8D84C90002F526 /* HomepageVM.swift in Sources */,
@@ -382,6 +393,7 @@
 				DC5CCC1A2C8CDFA6000BF6E1 /* HomepageVC.swift in Sources */,
 				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
 				DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */,
+				DC4DBC612C909B6D005772AE /* ChatBubbleCell.swift in Sources */,
 				DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */,
 				DC1DE1572C84A9710062F9D8 /* wassup.xcdatamodeld in Sources */,
 				DC68955D2C85F7E300500E2D /* AuthVM.swift in Sources */,

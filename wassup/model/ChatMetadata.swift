@@ -38,7 +38,6 @@ struct ChatMetadata: Encodable {
             members: json["members"] as! [String],
             createdAt: json["createdAt"] as! Timestamp,
             updatedAt: json["updatedAt"] as! Timestamp
-            //            members: json[`members`] as! [String],
         )
     }
     
