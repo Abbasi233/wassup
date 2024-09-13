@@ -64,6 +64,8 @@ class ChatBubbleCell: UITableViewCell {
         timeLabel.numberOfLines = 1
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.font = timeLabel.font.withSize(14)
+        timeLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal) // İçeriğine göre genişlesin
+        timeLabel.setContentCompressionResistancePriority(.required, for: .horizontal) // Yazıların kırpılmasını önlemek için yüksek öncelik
         addSubview(timeLabel)
         
         let cellMaxWidth = UIScreen.main.bounds.width * 0.7
