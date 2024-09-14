@@ -12,7 +12,6 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
-    let authVM = AuthVM()
     let chatVM = ChatVM()
     
     var chatMetadata = ChatMetadata.instance
@@ -56,7 +55,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatBubbleCell", for: indexPath) as! ChatBubbleCell
         let chatMessage = chatMessages[indexPath.row]
         
-        cell.isIncoming = chatMessage.owner != authVM.auth.currentUser?.uid
+        cell.isIncoming = chatMessage.owner != User.instance.uid!
         cell.messageLabel.text = chatMessage.text
         cell.timeLabel.text = getTime(dateTime: chatMessage.createdAt.dateValue())
         return cell

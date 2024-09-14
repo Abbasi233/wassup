@@ -11,13 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    let authViewModel = AuthVM()
+    let authVM = AuthVM()
     var authStateListener: NSObjectProtocol?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
         print("Scene method")
@@ -26,18 +23,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let board = UIStoryboard(name: "Main", bundle: nil)
         var viewController: UIViewController?
         
-        authStateListener = authViewModel.auth.addStateDidChangeListener { auth, user in
+        authStateListener = authVM.auth.addStateDidChangeListener { auth, user in
             print("Auth: \(auth)")
             print("User: \(String(describing: user))")
             
             if user != nil {
-                viewController = board.instantiateViewController(identifier: "DashboardTBC") as UITabBarController
+                self.authVM.getUserDocAndSync(user!.uid) {
+                    viewController = board.instantiateViewController(identifier: "DashboardTBC") as UITabBarController
+                }
+                
             } else {
                 viewController = board.instantiateViewController(identifier: "LoginVC") as UIViewController
             }
             
             self.window?.rootViewController = viewController
         }
+        
+        viewController = board.instantiateViewController(identifier: "SplashVC") as UIViewController
+        self.window?.rootViewController = viewController
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("")
         
         if authStateListener != nil {
-            authViewModel.auth.removeStateDidChangeListener(authStateListener!)
+            authVM.auth.removeStateDidChangeListener(authStateListener!)
         }
     }
     

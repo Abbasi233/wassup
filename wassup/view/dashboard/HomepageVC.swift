@@ -11,7 +11,6 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let authViewModel = AuthVM()
     let homepageViewModel = HomepageVM()
     
     var chatList = [ChatMetadata]()
@@ -23,18 +22,17 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        homepageViewModel.getChats(uid: authViewModel.auth.currentUser!.uid, complation: { chatList in
+        homepageViewModel.getChats(uid: User.instance.uid!, complation: { chatList in
             self.chatList = chatList
             self.tableView.reloadData()
         })
         
-        homepageViewModel.listenChats(uid: authViewModel.auth.currentUser!.uid)
+        homepageViewModel.listenChats(uid: User.instance.uid!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
-    
     
     @IBAction func newChatButtonClicked(_ sender: Any) {
         print("newChat")
@@ -45,9 +43,7 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListItemCell", for: indexPath) as! ChatListItemCell
         
-        cell.chatName.text = chatList[indexPath.row].members.first(where: { uid in
-            uid != authViewModel.auth.currentUser!.uid
-        })
+        cell.chatName.text = chatList[indexPath.row].members.first(where: { $0 != User.instance.uid! })
         cell.lastMessage.text = chatList[indexPath.row].lastMessage
         cell.lastMessageDateTime.text = customDateFormatter(chatList[indexPath.row].updatedAt.dateValue())
         
