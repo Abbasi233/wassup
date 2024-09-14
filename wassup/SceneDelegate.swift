@@ -14,33 +14,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let authVM = AuthVM()
     var authStateListener: NSObjectProtocol?
     
+    var viewController: UIViewController? {
+        didSet {
+            self.window?.rootViewController = viewController
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        print("Scene method")
-        print("")
-        
         let board = UIStoryboard(name: "Main", bundle: nil)
-        var viewController: UIViewController?
         
         authStateListener = authVM.auth.addStateDidChangeListener { auth, user in
-            print("Auth: \(auth)")
-            print("User: \(String(describing: user))")
-            
             if user != nil {
                 self.authVM.getUserDocAndSync(user!.uid) {
-                    viewController = board.instantiateViewController(identifier: "DashboardTBC") as UITabBarController
+                    self.viewController = board.instantiateViewController(identifier: "DashboardTBC") as UITabBarController
                 }
                 
             } else {
-                viewController = board.instantiateViewController(identifier: "LoginVC") as UIViewController
+                self.viewController = board.instantiateViewController(identifier: "LoginVC") as UIViewController
             }
-            
-            self.window?.rootViewController = viewController
         }
-        
-        viewController = board.instantiateViewController(identifier: "SplashVC") as UIViewController
-        self.window?.rootViewController = viewController
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
