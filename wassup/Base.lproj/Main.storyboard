@@ -271,6 +271,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="sendButtonClicked:" destination="Tg4-0Q-sss" eventType="touchUpInside" id="QpW-OJ-4tw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -292,6 +295,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sohbet" id="lMV-MH-kbe"/>
                     <connections>
+                        <outlet property="messageTextField" destination="UbF-TF-xhP" id="7ip-l4-mMb"/>
                         <outlet property="tableView" destination="vr4-gk-1Mn" id="Uas-ic-AQm"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageTextField: UITextField!
     
     let authVM = AuthVM()
     let chatVM = ChatVM()
@@ -38,6 +39,13 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.chatMessages = chatMessages
             self.tableView.reloadData()
         }
+    }
+    
+    @IBAction func sendButtonClicked(_ sender: Any) {
+        print(chatMetadata)
+        guard let message = messageTextField.text else { return }
+        
+        chatVM.sendMessage(chatId: chatMetadata.docId, message: message)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

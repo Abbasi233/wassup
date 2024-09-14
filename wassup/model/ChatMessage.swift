@@ -8,20 +8,20 @@
 import Foundation
 import FirebaseCore
 
-enum MessageType: Int {
+enum MessageType: Int, Encodable {
     case text = 1
     case document = 2
 }
 
-struct ChatMessage {
+struct ChatMessage : Encodable {
     
-    let docId: String
+    let docId: String?
     let text: String
     let owner: String
     let type: MessageType
     let createdAt: Timestamp
     
-    static func fromJson(docId: String, json: [String: Any]) -> ChatMessage {
+    static func fromJson(docId: String?, json: [String: Any]) -> ChatMessage {
         let type = json["type"] as? Int
         return ChatMessage(
             docId: docId,
