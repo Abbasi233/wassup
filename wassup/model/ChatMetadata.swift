@@ -8,11 +8,12 @@
 import Foundation
 import FirebaseCore
 
-struct ChatMetadata: Encodable {
+struct ChatMetadata: Codable {
     
     let docId: String
     let lastMessage: String
     let lastMessageOwner: String
+    let isSeen: Bool
     let members: [String]
     let createdAt: Timestamp
     let updatedAt: Timestamp
@@ -24,6 +25,7 @@ struct ChatMetadata: Encodable {
             docId: "",
             lastMessage: "",
             lastMessageOwner: "",
+            isSeen: true,
             members: [],
             createdAt: Timestamp(),
             updatedAt: Timestamp()
@@ -35,6 +37,7 @@ struct ChatMetadata: Encodable {
             docId: docId,
             lastMessage: json["lastMessage"] as! String,
             lastMessageOwner: json["lastMessageOwner"] as! String,
+            isSeen: json["isSeen"] as! Bool,
             members: json["members"] as! [String],
             createdAt: json["createdAt"] as! Timestamp,
             updatedAt: json["updatedAt"] as! Timestamp

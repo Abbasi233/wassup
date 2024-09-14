@@ -41,10 +41,12 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        print(chatMetadata)
         guard let message = messageTextField.text else { return }
+        if message == "" { return }
         
+        chatVM.chatMetadata = chatMetadata
         chatVM.sendMessage(chatId: chatMetadata.docId, message: message)
+        messageTextField.text = nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

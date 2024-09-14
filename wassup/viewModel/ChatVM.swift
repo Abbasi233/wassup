@@ -14,12 +14,16 @@ class ChatVM {
     
     var chatMetadata = ChatMetadata.instance
     
-    private func chatReference(_ chatId: String) -> CollectionReference {
-        return db.collection("Chats").document(chatId).collection("Messages")
+    private func chatMetadataDocReference(_ chatId: String) -> DocumentReference {
+        return db.collection("Chats").document(chatId)
+    }
+    
+    private func chatColReference(_ chatId: String) -> CollectionReference {
+        return chatMetadataDocReference(chatId).collection("Messages")
     }
     
     func listenChatMessages(chatId: String, onData: @escaping ([ChatMessage]?) -> Void) {
-        chatReference(chatId).order(by: "createdAt").addSnapshotListener { snapshot, error in
+        chatColReference(chatId).order(by: "createdAt").addSnapshotListener { snapshot, error in
             if error != nil {
                 print("Error getting documents: \(error!)")
                 return
@@ -32,14 +36,30 @@ class ChatVM {
     }
     
     func sendMessage(chatId: String, message: String) {
+        let encoder = Firestore.Encoder.init()
+        
+        let chatMetadata = ChatMetadata(
+            docId: chatMetadata.docId,
+            lastMessage: message,
+            lastMessageOwner: User.instance.uid!,
+            isSeen: false,
+            members: chatMetadata.members,
+            createdAt: chatMetadata.createdAt,
+            updatedAt: Timestamp(date: Date())
+        )
+        
         let chatMessage = ChatMessage(
             docId: nil,
             text: message,
-            owner: "authVM.auth.currentUser!.uid",
+            owner: User.instance.uid!,
             type: .text,
             createdAt: Timestamp(date: Date())
         )
-        let result = try? chatReference(chatId).addDocument(from: message, encoder: Firestore.Encoder.init())
-        print(result!)
+        do {
+            try chatColReference(chatId).addDocument(from: chatMessage, encoder: encoder)
+            try chatMetadataDocReference(chatId).setData(from: chatMetadata, encoder: encoder)
+        } catch {
+            print("Failed")
+        }
     }
 }
