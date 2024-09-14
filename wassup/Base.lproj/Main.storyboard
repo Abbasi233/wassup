@@ -140,7 +140,7 @@
         <!--Chat List-->
         <scene sceneID="Qzw-vt-RcZ">
             <objects>
-                <viewController id="LCf-Jn-MZ1" customClass="HomepageVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LCf-Jn-MZ1" customClass="ChatListVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4kd-Mw-lsZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +236,7 @@
         <!--Sohbet-->
         <scene sceneID="KjT-hR-BiI">
             <objects>
-                <viewController id="Tg4-0Q-sss" customClass="ChatPageVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tg4-0Q-sss" customClass="ChatVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJX-it-EEZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

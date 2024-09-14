@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -62,7 +62,7 @@ class HomepageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ChatPageVC
+        let vc = segue.destination as! ChatVC
         vc.chatMetadata = selectedChat!
     }
     
