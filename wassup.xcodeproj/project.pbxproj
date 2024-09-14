@@ -143,10 +143,10 @@
 		DC1DE14B2C84A9710062F9D8 /* wassup */ = {
 			isa = PBXGroup;
 			children = (
-				DC5CCC142C8CD2EA000BF6E1 /* view */,
-				DC5CCC0F2C8C875D000BF6E1 /* utils */,
-				DC27033B2C8BABEB00A36D13 /* viewModel */,
-				DC2703382C8BAAA100A36D13 /* model */,
+				DC5CCC142C8CD2EA000BF6E1 /* View */,
+				DC5CCC0F2C8C875D000BF6E1 /* Utils */,
+				DC27033B2C8BABEB00A36D13 /* ViewModel */,
+				DC2703382C8BAAA100A36D13 /* Model */,
 				DC1DE14C2C84A9710062F9D8 /* AppDelegate.swift */,
 				DC1DE14E2C84A9710062F9D8 /* SceneDelegate.swift */,
 				DC1DE1522C84A9710062F9D8 /* Main.storyboard */,
@@ -176,55 +176,56 @@
 			path = wassupUITests;
 			sourceTree = "<group>";
 		};
-		DC2703382C8BAAA100A36D13 /* model */ = {
+		DC2703382C8BAAA100A36D13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DC2703392C8BAAC600A36D13 /* User.swift */,
 				DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */,
 				DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		DC27033B2C8BABEB00A36D13 /* viewModel */ = {
+		DC27033B2C8BABEB00A36D13 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				DC68955C2C85F7E300500E2D /* AuthVM.swift */,
 				DC9DD2EE2C8D84C90002F526 /* HomepageVM.swift */,
 				DC851A0A2C92E80600D75659 /* ChatVM.swift */,
 			);
-			path = viewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DC5CCC0F2C8C875D000BF6E1 /* utils */ = {
+		DC5CCC0F2C8C875D000BF6E1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */,
 			);
-			path = utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		DC5CCC142C8CD2EA000BF6E1 /* view */ = {
+		DC5CCC142C8CD2EA000BF6E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DC5CCC182C8CDEF3000BF6E1 /* dashboard */,
-				DC5CCC152C8CD309000BF6E1 /* auth */,
+				DC5CCC182C8CDEF3000BF6E1 /* Dashboard */,
+				DC5CCC152C8CD309000BF6E1 /* Auth */,
 			);
-			path = view;
+			path = View;
 			sourceTree = "<group>";
 		};
-		DC5CCC152C8CD309000BF6E1 /* auth */ = {
+		DC5CCC152C8CD309000BF6E1 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				DC1DE1502C84A9710062F9D8 /* LoginViewController.swift */,
 				DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */,
 			);
-			path = auth;
+			path = Auth;
 			sourceTree = "<group>";
 		};
-		DC5CCC182C8CDEF3000BF6E1 /* dashboard */ = {
+		DC5CCC182C8CDEF3000BF6E1 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				DCFBEC302C95C06900AE943A /* ChatList */,
 				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
 				DC5CCC192C8CDFA6000BF6E1 /* HomepageVC.swift */,
 				DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */,
@@ -232,7 +233,14 @@
 				DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */,
 				DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */,
 			);
-			path = dashboard;
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DCFBEC302C95C06900AE943A /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
