@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseCore
 
-struct ChatMetadata: Codable {
+struct ChatMetadata: Codable, Equatable {
     
     let docId: String
     let lastMessage: String

@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import Combine
+import os.log
 
 class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "myCategory")
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyListLabel: UILabel!
     
-    let homepageViewModel = HomepageVM()
+    var chatListVM = ChatListVM()
+    var cancellables = Set<AnyCancellable>()
     
-    var chatList = [ChatMetadata]()
-    var selectedChat: ChatMetadata?
+    var selectedChat: Chat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,30 +26,39 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        homepageViewModel.getChats(uid: User.instance.uid!, complation: { chatList in
-            self.chatList = chatList
-            self.tableView.reloadData()
-        })
-        
-        homepageViewModel.listenChats(uid: User.instance.uid!)
+        chatListVM.$chatList
+            .receive(on: DispatchQueue.main)
+            .sink { chatList in
+                if chatList.isEmpty {
+                    self.tableView.isHidden = true
+                    self.emptyListLabel.isHidden = false
+                    return
+                }
+                
+                self.tableView.isHidden = false
+                self.emptyListLabel.isHidden = true
+                self.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        chatListVM.listenChats(uid: User.instance.uid!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    @IBAction func newChatButtonClicked(_ sender: Any) {
-        print("newChat")
-    }
+    @IBAction func newChatButtonClicked(_ sender: Any) { }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return chatList.count }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return chatListVM.chatList.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListItemCell", for: indexPath) as! ChatListItemCell
         
-        cell.chatName.text = chatList[indexPath.row].members.first(where: { $0 != User.instance.uid! })
-        cell.lastMessage.text = chatList[indexPath.row].lastMessage
-        cell.lastMessageDateTime.text = customDateFormatter(chatList[indexPath.row].updatedAt.dateValue())
+        let chat = chatListVM.chatList[indexPath.row]
+        
+        cell.chatName.text = chat.talker.fullname
+        cell.lastMessage.text = chat.metadata.lastMessage
+        cell.lastMessageDateTime.text = customDateFormatter(chat.metadata.updatedAt.dateValue())
         
         cell.profileImageView.image = UIImage(named: "person.png")
         cell.profileImageView.layer.masksToBounds = false
@@ -54,7 +67,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.profileImageView.layer.backgroundColor = UIColor.systemGray5.cgColor
         
         cell.onClick = {
-            self.selectedChat = self.chatList[indexPath.row]
+            self.selectedChat = chat
             self.tableView.deselectRow(at: indexPath, animated: false)
             self.performSegue(withIdentifier: "ChatPageSegue", sender: self)
         }
@@ -63,7 +76,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ChatVC
-        vc.chatMetadata = selectedChat!
+        vc.chat = selectedChat!
     }
     
     func customDateFormatter(_ timestamp: Date) -> String {

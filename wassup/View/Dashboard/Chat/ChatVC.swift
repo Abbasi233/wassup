@@ -14,7 +14,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let chatVM = ChatVM()
     
-    var chatMetadata = ChatMetadata.instance
+    var chat: Chat? // TODO: Dependency Injection ile non-optional hale getirilecek
     var chatMessages = [ChatMessage]()
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.tabBarController?.tabBar.isHidden = true
         
-        chatVM.listenChatMessages(chatId: chatMetadata.docId) { data in
+        chatVM.listenChatMessages(chatId: chat!.metadata.docId) { data in
             guard let chatMessages = data else { return }
             self.chatMessages = chatMessages
             self.tableView.reloadData()
@@ -44,8 +44,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         guard let message = messageTextField.text else { return }
         if message == "" { return }
         
-        chatVM.chatMetadata = chatMetadata
-        chatVM.sendMessage(chatId: chatMetadata.docId, message: message)
+        chatVM.chatMetadata = chat!.metadata
+        chatVM.sendMessage(chatId: chat!.metadata.docId, message: message)
         messageTextField.text = nil
     }
     
