@@ -10,8 +10,7 @@ import Combine
 import os.log
 
 class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "myCategory")
-    
+     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyListLabel: UILabel!
     
@@ -40,6 +39,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
+        
         chatListVM.listenChats(uid: User.instance.uid!)
     }
     
