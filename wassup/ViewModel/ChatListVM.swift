@@ -15,6 +15,52 @@ class ChatListVM : ObservableObject {
     
     @Published var chatList = [Chat]()
     
+    func listenChats(uid: String) {
+        listenChatMetadataList(uid: uid)
+            .flatMap { chatMetadataList in
+                Publishers.MergeMany(
+                    chatMetadataList.map { chatMetadata in
+                        
+                        self.listenTalker(talkerId: self.getTalkerId(uid: uid, members: chatMetadata.members))
+                            .map { (chatMetadata, $0) }
+                    }
+                )
+            }
+            .map({ (chatMetadata, talker) in
+                Chat(metadata: chatMetadata, talker: talker)
+            })
+            .sink { error in
+                print(error)
+            } receiveValue: { chat in
+                
+                let index = self.chatList.firstIndex(where: { chatX in
+                    print("\(chatX.metadata.docId) == \(chat.metadata.docId)")
+                    return chatX.metadata.docId == chat.metadata.docId
+                })
+                
+                print("Index: \(index as Any)")
+                
+                DispatchQueue.main.async {
+                    
+                    if index == nil {
+                        self.chatList.append(chat)
+                    } else if index! >= 0 {
+                        self.chatList[index!] = chat
+                        self.chatList.sort { chat1, chat2 in
+                            return chat1.metadata.updatedAt.dateValue() > chat2.metadata.updatedAt.dateValue()
+                        }
+                    }
+                }
+                
+            }.store(in: &cancellables)
+        
+        
+    }
+    
+    func deleteChat(chatId: String) {
+        Firestore.firestore().collection("Chats").document(chatId).delete()
+    }
+    
     private var cancellables = Set<AnyCancellable>()
     
     private func listenChatMetadataList(uid: String) -> AnyPublisher<[ChatMetadata], Error>{
@@ -50,46 +96,10 @@ class ChatListVM : ObservableObject {
         return talkerPublisher.eraseToAnyPublisher()
     }
     
-    func listenChats(uid: String) {
-        listenChatMetadataList(uid: uid)
-            .flatMap { chatMetadataList in
-                Publishers.MergeMany(
-                    chatMetadataList.map { chatMetadata in
-                        
-                        self.listenTalker(talkerId: self.getTalkerId(uid: uid, members: chatMetadata.members))
-                            .map { (chatMetadata, $0) }
-                    }
-                )
-            }
-            .map({ (chatMetadata, talker) in
-                Chat(metadata: chatMetadata, talker: talker)
-            })
-            .sink { error in
-                print(error)
-            } receiveValue: { chat in
-                
-                let index = self.chatList.firstIndex(where: { chatX in
-                    print("\(chatX.metadata.docId) == \(chat.metadata.docId)")
-                    return chatX.metadata.docId == chat.metadata.docId
-                })
-                
-                print("Index: \(index as Any)")
-                
-                DispatchQueue.main.async {
-                    
-                    if index == nil {
-                        self.chatList.append(chat)
-                    } else if index! >= 0 {
-                        self.chatList[index!] = chat
-                    }
-                    
-                }
-                
-            }.store(in: &cancellables)
-    }
     
     private func getTalkerId(uid:String, members: [String]) -> String {
         return members[0] != uid ? members[0] : members[1]
     }
+    
     
 }

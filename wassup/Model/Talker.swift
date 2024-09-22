@@ -10,9 +10,13 @@ import Foundation
 struct Talker: Equatable {
     let uid: String
     let fullname: String
-    let profileImage: String
+    let profileImage: String?
     
     static func fromJson(_ uid: String, _ json: [String : Any]) -> Talker {
-        return Talker(uid: uid, fullname: json["fullname"] as! String, profileImage: json["profileImage"] as! String)
+        return Talker(
+            uid: uid,
+            fullname: json["fullname"] as! String,
+            profileImage: json["profileImage"] as? String
+        )
     }
 }

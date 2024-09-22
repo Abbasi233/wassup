@@ -13,6 +13,7 @@ class ChatListItemCell: UITableViewCell {
     @IBOutlet weak var lastMessage: UILabel!
     @IBOutlet weak var lastMessageDateTime: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var newMessageBadgeView: UIView!
     
     var onClick: () -> Void = {}
     

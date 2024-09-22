@@ -8,9 +8,10 @@
 import UIKit
 import Combine
 import os.log
+import Kingfisher
 
 class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-     
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyListLabel: UILabel!
     
@@ -19,8 +20,11 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedChat: Chat?
     
+    @IBAction func newChatButtonClicked(_ sender: Any) { }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backButtonTitle = ""
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,7 +51,10 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    @IBAction func newChatButtonClicked(_ sender: Any) { }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ChatVC
+        vc.chat = selectedChat!
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return chatListVM.chatList.count }
     
@@ -58,13 +65,23 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.chatName.text = chat.talker.fullname
         cell.lastMessage.text = chat.metadata.lastMessage
+        cell.lastMessage.font = chat.metadata.isSeen ? UIFont.systemFont(ofSize: 13) : UIFont.boldSystemFont(ofSize: 13)
         cell.lastMessageDateTime.text = customDateFormatter(chat.metadata.updatedAt.dateValue())
+        cell.lastMessageDateTime.textColor = chat.metadata.isSeen ? UIColor.darkGray : UIColor.systemBlue
         
-        cell.profileImageView.image = UIImage(named: "person.png")
+        cell.profileImageView.image = UIImage(named: Constants.personImage)
         cell.profileImageView.layer.masksToBounds = false
         cell.profileImageView.layer.cornerRadius = 58/2
         cell.profileImageView.clipsToBounds = true
         cell.profileImageView.layer.backgroundColor = UIColor.systemGray5.cgColor
+        
+        if let profileImageUrl = URL(string: chat.talker.profileImage ?? "") {
+            cell.profileImageView.kf.setImage(with: profileImageUrl, placeholder: UIImage(named: Constants.personImage))
+        }
+        
+        cell.newMessageBadgeView.layer.cornerRadius = 10
+        cell.newMessageBadgeView.clipsToBounds = true
+        cell.newMessageBadgeView.isHidden = chat.metadata.isSeen
         
         cell.onClick = {
             self.selectedChat = chat
@@ -74,12 +91,26 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ChatVC
-        vc.chat = selectedChat!
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
     }
     
-    func customDateFormatter(_ timestamp: Date) -> String {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            AlertUtil.confirm(
+                on: self,
+                title: "Delete Chat",
+                message: "Are you sure you want to delete this chat?", 
+                onConfirm: {
+                    self.chatListVM.deleteChat(chatId: self.chatListVM.chatList[indexPath.row].metadata.docId)
+                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.tableView.reloadData()
+                }
+            )
+        }
+    }
+    
+    private func customDateFormatter(_ timestamp: Date) -> String {
         let calendar = Calendar.current
         let dateFormatter = DateFormatter()
         
@@ -95,7 +126,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return "Yesterday"
         }
         
-        if let days = components.day, days < 7 {
+        if let days = components.day, let month = components.month, days < 7, month < 1 {
             dateFormatter.dateFormat = "EEEE"
             return dateFormatter.string(from: timestamp)
         }

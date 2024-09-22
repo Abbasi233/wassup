@@ -25,6 +25,7 @@
 		DC24A7F52C850D46009770F8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F42C850D46009770F8 /* FirebaseMessaging */; };
 		DC24A7F72C850D46009770F8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F62C850D46009770F8 /* FirebaseStorage */; };
 		DC27033A2C8BAAC600A36D13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2703392C8BAAC600A36D13 /* User.swift */; };
+		DC40A76B2CA0A0F00054BA9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC40A76A2CA0A0F00054BA9D /* Constants.swift */; };
 		DC4DBC612C909B6D005772AE /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */; };
 		DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */; };
 		DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */; };
@@ -77,6 +78,7 @@
 		DC1DE1702C84A9720062F9D8 /* wassupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITests.swift; sourceTree = "<group>"; };
 		DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC2703392C8BAAC600A36D13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC40A76A2CA0A0F00054BA9D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
 		DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		DC5CCC122C8C9B2A000BF6E1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		DC1DE14B2C84A9710062F9D8 /* wassup */ = {
 			isa = PBXGroup;
 			children = (
+				DC40A7692CA0A0CD0054BA9D /* Constants */,
 				DC5CCC142C8CD2EA000BF6E1 /* View */,
 				DC5CCC0F2C8C875D000BF6E1 /* Utils */,
 				DC27033B2C8BABEB00A36D13 /* ViewModel */,
@@ -200,6 +203,14 @@
 				DC851A0A2C92E80600D75659 /* ChatVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC40A7692CA0A0CD0054BA9D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DC40A76A2CA0A0F00054BA9D /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		DC5CCC0F2C8C875D000BF6E1 /* Utils */ = {
@@ -421,6 +432,7 @@
 				DCFBEC342C95C66100AE943A /* Talker.swift in Sources */,
 				DC27033A2C8BAAC600A36D13 /* User.swift in Sources */,
 				DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */,
+				DC40A76B2CA0A0F00054BA9D /* Constants.swift in Sources */,
 				DC5CCC1A2C8CDFA6000BF6E1 /* ChatListVC.swift in Sources */,
 				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
 				DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */,
