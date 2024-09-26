@@ -11,6 +11,7 @@ import FirebaseFirestore
 class ChatPageVM {
     
     private let db = Firestore.firestore()
+    private let encoder = Firestore.Encoder.init()
     
     var chatMetadata = ChatMetadata.instance
     
@@ -36,8 +37,6 @@ class ChatPageVM {
     }
     
     func sendMessage(chatMetadata: ChatMetadata, message: String) {
-        let encoder = Firestore.Encoder.init()
-        
         let chatMetadata = ChatMetadata(
             docId: chatMetadata.docId,
             lastMessage: message,
@@ -61,5 +60,9 @@ class ChatPageVM {
         } catch {
             print("Failed")
         }
+    }
+    
+    func setMessageSeen(chatMetadata: ChatMetadata) {
+        chatMetadataDocReference(chatMetadata.docId).updateData(["isSeen": true])
     }
 }

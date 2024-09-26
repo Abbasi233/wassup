@@ -24,6 +24,8 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        chatVM.setMessageSeen(chatMetadata: chat!.metadata)
+        
         setupNavigationBarTitleView(name: chat?.talker.fullname, imageUrl: chat?.talker.profileImage)
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
