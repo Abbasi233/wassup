@@ -81,7 +81,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.newMessageBadgeView.layer.cornerRadius = 10
         cell.newMessageBadgeView.clipsToBounds = true
-        cell.newMessageBadgeView.isHidden = chat.metadata.isSeen
+        cell.newMessageBadgeView.isHidden = chat.metadata.isSeen || chat.metadata.lastMessageOwner == User.instance.uid
         
         cell.onClick = {
             self.selectedChat = chat
