@@ -52,7 +52,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ChatVC
+        let vc = segue.destination as! ChatPageVC
         vc.chat = selectedChat!
     }
     

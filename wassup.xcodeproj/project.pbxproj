@@ -33,12 +33,13 @@
 		DC5CCC1A2C8CDFA6000BF6E1 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC192C8CDFA6000BF6E1 /* ChatListVC.swift */; };
 		DC5CCC1D2C8CF6DF000BF6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC5CCC1C2C8CF6DF000BF6E1 /* Kingfisher */; };
 		DC5CCC1F2C8CFA8C000BF6E1 /* ChatListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */; };
+		DC674EF82CA2133200689793 /* ChatNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC674EF72CA2133200689793 /* ChatNavigationBar.swift */; };
 		DC68955D2C85F7E300500E2D /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68955C2C85F7E300500E2D /* AuthVM.swift */; };
 		DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */; };
 		DC851A0B2C92E80600D75659 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC851A0A2C92E80600D75659 /* ChatVM.swift */; };
 		DC9DD2EF2C8D84C90002F526 /* ChatListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2EE2C8D84C90002F526 /* ChatListVM.swift */; };
 		DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */; };
-		DCB843702C905BAA00E3F297 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatVC.swift */; };
+		DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */; };
 		DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */; };
 		DCFBEC342C95C66100AE943A /* Talker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC332C95C66100AE943A /* Talker.swift */; };
 		DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC352C95C6E900AE943A /* Chat.swift */; };
@@ -85,12 +86,13 @@
 		DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		DC5CCC192C8CDFA6000BF6E1 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
 		DC5CCC1E2C8CFA8C000BF6E1 /* ChatListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItemCell.swift; sourceTree = "<group>"; };
+		DC674EF72CA2133200689793 /* ChatNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationBar.swift; sourceTree = "<group>"; };
 		DC68955C2C85F7E300500E2D /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		DC851A0A2C92E80600D75659 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
 		DC9DD2EE2C8D84C90002F526 /* ChatListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVM.swift; sourceTree = "<group>"; };
 		DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMetadata.swift; sourceTree = "<group>"; };
-		DCB8436F2C905BAA00E3F297 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
 		DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DCFBEC332C95C66100AE943A /* Talker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talker.swift; sourceTree = "<group>"; };
 		DCFBEC352C95C6E900AE943A /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -262,8 +264,9 @@
 		DCFBEC312C95C18300AE943A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				DCB8436F2C905BAA00E3F297 /* ChatVC.swift */,
+				DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */,
 				DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */,
+				DC674EF72CA2133200689793 /* ChatNavigationBar.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC851A0B2C92E80600D75659 /* ChatVM.swift in Sources */,
+				DC674EF82CA2133200689793 /* ChatNavigationBar.swift in Sources */,
 				DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */,
 				DC1DE1512C84A9710062F9D8 /* LoginViewController.swift in Sources */,
 				DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */,
@@ -436,7 +440,7 @@
 				DC5CCC1A2C8CDFA6000BF6E1 /* ChatListVC.swift in Sources */,
 				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
 				DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */,
-				DCB843702C905BAA00E3F297 /* ChatVC.swift in Sources */,
+				DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */,
 				DC4DBC612C909B6D005772AE /* ChatBubbleCell.swift in Sources */,
 				DC5CCC112C8C8775000BF6E1 /* AlertUtil.swift in Sources */,
 				DC1DE1572C84A9710062F9D8 /* wassup.xcdatamodeld in Sources */,

@@ -260,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="3304.1860465116279" y="-392.06008583690988"/>
         </scene>
-        <!--Sohbet-->
+        <!--Chat PageVC-->
         <scene sceneID="KjT-hR-BiI">
             <objects>
-                <viewController id="Tg4-0Q-sss" customClass="ChatVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tg4-0Q-sss" customClass="ChatPageVC" customModule="wassup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJX-it-EEZ">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +320,7 @@
                             <constraint firstItem="vr4-gk-1Mn" firstAttribute="leading" secondItem="SqX-6D-7JN" secondAttribute="leading" id="yXx-Tm-00D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sohbet" id="lMV-MH-kbe"/>
+                    <navigationItem key="navigationItem" id="S5W-6H-f9y"/>
                     <connections>
                         <outlet property="messageTextField" destination="UbF-TF-xhP" id="7ip-l4-mMb"/>
                         <outlet property="tableView" destination="vr4-gk-1Mn" id="Uas-ic-AQm"/>

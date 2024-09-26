@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
@@ -23,12 +24,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        setupNavigationBarTitleView(name: chat?.talker.fullname, imageUrl: chat?.talker.profileImage)
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "wallpaper")
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.alpha = 0.5
         tableView.backgroundView = backgroundImage
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         self.tabBarController?.tabBar.isHidden = true
@@ -67,5 +69,46 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: dateTime)
+    }
+    
+    private func setupNavigationBarTitleView(name: String?, imageUrl: String?) {
+        
+        let imageView = UIImageView(image: UIImage(named: Constants.personImage))
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
+        imageView.layer.backgroundColor = UIColor.systemGray5.cgColor
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let profileImageUrl = URL(string: imageUrl ?? "") {
+            imageView.kf.setImage(with: profileImageUrl, placeholder: UIImage(named: Constants.personImage))
+        }
+        
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let nameLabel = UILabel()
+        nameLabel.text = name
+        nameLabel.font = UIFont.systemFont(ofSize: 18)
+        nameLabel.textColor = .black
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(imageView)
+        view.addSubview(nameLabel)
+        
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: view)
+        self.navigationItem.leftItemsSupplementBackButton = true
     }
 }
