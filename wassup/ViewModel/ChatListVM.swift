@@ -66,7 +66,7 @@ class ChatListVM : ObservableObject {
     private func listenChatMetadataList(uid: String) -> AnyPublisher<[ChatMetadata], Error>{
         let chatMetadataListPublisher = PassthroughSubject<[ChatMetadata], Error>()
         
-        Firestore.firestore().collection("Chats").whereField("members", arrayContains: uid).addSnapshotListener { snapshot, error in
+        Firestore.firestore().collection("Chats").whereField("members", arrayContains: uid).order(by: "updatedAt", descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
                 chatMetadataListPublisher.send(completion: .failure(error))
                 return

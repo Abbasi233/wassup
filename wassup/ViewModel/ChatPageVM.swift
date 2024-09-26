@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-class ChatVM {
+class ChatPageVM {
     
     private let db = Firestore.firestore()
     
@@ -35,7 +35,7 @@ class ChatVM {
         }
     }
     
-    func sendMessage(chatId: String, message: String) {
+    func sendMessage(chatMetadata: ChatMetadata, message: String) {
         let encoder = Firestore.Encoder.init()
         
         let chatMetadata = ChatMetadata(
@@ -56,8 +56,8 @@ class ChatVM {
             createdAt: Timestamp(date: Date())
         )
         do {
-            try chatColReference(chatId).addDocument(from: chatMessage, encoder: encoder)
-            try chatMetadataDocReference(chatId).setData(from: chatMetadata, encoder: encoder)
+            try chatColReference(chatMetadata.docId).addDocument(from: chatMessage, encoder: encoder)
+            try chatMetadataDocReference(chatMetadata.docId).setData(from: chatMetadata, encoder: encoder)
         } catch {
             print("Failed")
         }

@@ -13,7 +13,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
-    let chatVM = ChatVM()
+    let chatVM = ChatPageVM()
     
     var chat: Chat? // TODO: Dependency Injection ile non-optional hale getirilecek
     var chatMessages = [ChatMessage]()
@@ -46,8 +46,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         guard let message = messageTextField.text else { return }
         if message == "" { return }
         
-        chatVM.chatMetadata = chat!.metadata
-        chatVM.sendMessage(chatId: chat!.metadata.docId, message: message)
+        chatVM.sendMessage(chatMetadata: chat!.metadata, message: message)
         messageTextField.text = nil
     }
     
