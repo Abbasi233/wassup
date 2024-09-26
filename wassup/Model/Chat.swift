@@ -11,3 +11,13 @@ struct Chat : Equatable {
     let metadata: ChatMetadata
     let talker: Talker
 }
+
+extension Chat {
+    var isSeen: Bool {
+        return metadata.isSeen || isLastMessageOwner
+    }
+    
+    var isLastMessageOwner: Bool {
+        return metadata.lastMessageOwner == User.instance.uid
+    }
+}

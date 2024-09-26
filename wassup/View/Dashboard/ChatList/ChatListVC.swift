@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import os.log
 import Kingfisher
 
 class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -64,24 +63,26 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let chat = chatListVM.chatList[indexPath.row]
         
         cell.chatName.text = chat.talker.fullname
-        cell.lastMessage.text = chat.metadata.lastMessage
-        cell.lastMessage.font = chat.metadata.isSeen ? UIFont.systemFont(ofSize: 13) : UIFont.boldSystemFont(ofSize: 13)
-        cell.lastMessageDateTime.text = customDateFormatter(chat.metadata.updatedAt.dateValue())
-        cell.lastMessageDateTime.textColor = chat.metadata.isSeen ? UIColor.darkGray : UIColor.systemBlue
         
-        cell.profileImageView.image = UIImage(named: Constants.personImage)
+        cell.checkmarkImage.isHidden = !chat.isLastMessageOwner
+        cell.checkmarkImage.tintColor = chat.metadata.isSeen ? UIColor.systemBlue : UIColor.lightGray
+        
+        cell.lastMessage.text = chat.metadata.lastMessage
+        cell.lastMessage.font = chat.isSeen ? UIFont.systemFont(ofSize: 13) : UIFont.boldSystemFont(ofSize: 13)
+        cell.lastMessageDateTime.text = customDateFormatter(chat.metadata.updatedAt.dateValue())
+        cell.lastMessageDateTime.textColor = chat.isSeen ? UIColor.darkGray : UIColor.systemBlue
+        
         cell.profileImageView.layer.masksToBounds = false
-        cell.profileImageView.layer.cornerRadius = 58/2
+        cell.profileImageView.layer.cornerRadius = 28
         cell.profileImageView.clipsToBounds = true
-        cell.profileImageView.layer.backgroundColor = UIColor.systemGray5.cgColor
         
         if let profileImageUrl = URL(string: chat.talker.profileImage ?? "") {
-            cell.profileImageView.kf.setImage(with: profileImageUrl, placeholder: UIImage(named: Constants.personImage))
+            cell.profileImageView.kf.setImage(with: profileImageUrl, placeholder: UIImage(systemName: Constants.personImage))
         }
         
         cell.newMessageBadgeView.layer.cornerRadius = 10
         cell.newMessageBadgeView.clipsToBounds = true
-        cell.newMessageBadgeView.isHidden = chat.metadata.isSeen || chat.metadata.lastMessageOwner == User.instance.uid
+        cell.newMessageBadgeView.isHidden = chat.isSeen
         
         cell.onClick = {
             self.selectedChat = chat

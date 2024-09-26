@@ -10,5 +10,5 @@ import Foundation
 struct Constants {
     
     // MARK: images
-    static let personImage = "person.png"
+    static let personImage = "person.crop.circle.fill"
 }
