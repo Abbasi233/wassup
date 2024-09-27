@@ -245,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				DCFBEC322C95C1E600AE943A /* Profile */,
-				DCFBEC312C95C18300AE943A /* Chat */,
+				DCFBEC312C95C18300AE943A /* ChatPage */,
 				DCFBEC302C95C06900AE943A /* ChatList */,
 				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
 			);
@@ -261,14 +261,14 @@
 			path = ChatList;
 			sourceTree = "<group>";
 		};
-		DCFBEC312C95C18300AE943A /* Chat */ = {
+		DCFBEC312C95C18300AE943A /* ChatPage */ = {
 			isa = PBXGroup;
 			children = (
 				DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */,
 				DC4DBC602C909B6D005772AE /* ChatBubbleCell.swift */,
 				DC674EF72CA2133200689793 /* ChatNavigationBar.swift */,
 			);
-			path = Chat;
+			path = ChatPage;
 			sourceTree = "<group>";
 		};
 		DCFBEC322C95C1E600AE943A /* Profile */ = {
