@@ -38,8 +38,6 @@ class ChatListVM : ObservableObject {
                     return chatX.metadata.docId == chat.metadata.docId
                 })
                 
-                print("Index: \(index as Any)")
-                
                 DispatchQueue.main.async {
                     
                     if index == nil {
