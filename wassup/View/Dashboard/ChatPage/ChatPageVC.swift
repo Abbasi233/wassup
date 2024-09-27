@@ -41,6 +41,11 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             guard let chatMessages = data else { return }
             self.chatMessages = chatMessages
             self.tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                let indexPath = IndexPath(row: self.chatMessages.count - 1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
     }
     
