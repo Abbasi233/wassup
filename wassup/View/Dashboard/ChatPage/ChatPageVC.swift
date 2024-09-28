@@ -15,17 +15,26 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let chatVM = ChatPageVM()
     
-    var chat: Chat? // TODO: Dependency Injection ile non-optional hale getirilecek
+    var chat: Chat? { // TODO: Dependency Injection ile non-optional hale getirilecek
+        didSet {
+            print(self.chat?.metadata.lastMessage as Any)
+            if self.chat != nil && !self.chat!.isLastMessageOwner {
+                self.chatVM.setMessageSeen(chat: self.chat!)
+            }
+        }
+    }
     var chatMessages = [ChatMessage]()
     var pageInitialized = false
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        chat = nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        chatVM.setMessageSeen(chat: chat!)
         
         setupNavigationBarTitleView(name: chat?.talker.fullname, imageUrl: chat?.talker.profileImage)
         

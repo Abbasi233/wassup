@@ -18,6 +18,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var cancellables = Set<AnyCancellable>()
     
     var selectedChat: Chat?
+    var openedViewController: UIViewController?
     
     @IBAction func newChatButtonClicked(_ sender: Any) { }
     
@@ -37,6 +38,15 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     return
                 }
                 
+                if self.openedViewController != nil {
+                    let optionalChat = chatList.first { $0.metadata.docId == self.selectedChat?.metadata.docId }
+                    
+                    if let chat = optionalChat {
+                        let vc = self.openedViewController as! ChatPageVC
+                        if vc.chat != nil { vc.chat = chat }
+                    }
+                    
+                }
                 self.tableView.isHidden = false
                 self.emptyListLabel.isHidden = true
                 self.tableView.reloadData()
@@ -51,11 +61,11 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ChatPageVC
-        vc.chat = selectedChat!
+        openedViewController = segue.destination
+        (openedViewController as! ChatPageVC).chat = selectedChat!
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return chatListVM.chatList.count }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { chatListVM.chatList.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListItemCell", for: indexPath) as! ChatListItemCell
@@ -92,9 +102,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle { .delete }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
