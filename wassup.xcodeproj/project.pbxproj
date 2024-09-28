@@ -35,12 +35,15 @@
 		DC68955D2C85F7E300500E2D /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68955C2C85F7E300500E2D /* AuthVM.swift */; };
 		DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */; };
 		DC851A0B2C92E80600D75659 /* ChatPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC851A0A2C92E80600D75659 /* ChatPageVM.swift */; };
+		DC8688372CA83C68001F1C08 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC8688362CA83C68001F1C08 /* Kingfisher */; };
+		DC86883A2CA84004001F1C08 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8688392CA84004001F1C08 /* SettingsVC.swift */; };
+		DC86883C2CA8403F001F1C08 /* SettingsListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86883B2CA8403F001F1C08 /* SettingsListItemCell.swift */; };
+		DC86883E2CA84211001F1C08 /* SettingsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86883D2CA84211001F1C08 /* SettingsListItem.swift */; };
 		DC9DD2EF2C8D84C90002F526 /* ChatListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2EE2C8D84C90002F526 /* ChatListVM.swift */; };
 		DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */; };
 		DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */; };
 		DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */; };
 		DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */; };
-		DCFAB9D62CA7FDE0005DD86E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCFAB9D52CA7FDE0005DD86E /* Kingfisher */; };
 		DCFAB9D82CA8068A005DD86E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D72CA8068A005DD86E /* Extensions.swift */; };
 		DCFBEC342C95C66100AE943A /* Talker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC332C95C66100AE943A /* Talker.swift */; };
 		DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC352C95C6E900AE943A /* Chat.swift */; };
@@ -90,6 +93,9 @@
 		DC68955C2C85F7E300500E2D /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		DC851A0A2C92E80600D75659 /* ChatPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVM.swift; sourceTree = "<group>"; };
+		DC8688392CA84004001F1C08 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DC86883B2CA8403F001F1C08 /* SettingsListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListItemCell.swift; sourceTree = "<group>"; };
+		DC86883D2CA84211001F1C08 /* SettingsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListItem.swift; sourceTree = "<group>"; };
 		DC9DD2EE2C8D84C90002F526 /* ChatListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVM.swift; sourceTree = "<group>"; };
 		DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMetadata.swift; sourceTree = "<group>"; };
 		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
@@ -109,7 +115,7 @@
 				DC24A7F72C850D46009770F8 /* FirebaseStorage in Frameworks */,
 				DC24A7F12C850D46009770F8 /* FirebaseAuth in Frameworks */,
 				DC24A7F32C850D46009770F8 /* FirebaseFirestore in Frameworks */,
-				DCFAB9D62CA7FDE0005DD86E /* Kingfisher in Frameworks */,
+				DC8688372CA83C68001F1C08 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,7 @@
 				DC75C4CC2C90EC73006427E1 /* ChatMessage.swift */,
 				DCFBEC332C95C66100AE943A /* Talker.swift */,
 				DCFBEC352C95C6E900AE943A /* Chat.swift */,
+				DC86883D2CA84211001F1C08 /* SettingsListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,12 +254,22 @@
 		DC5CCC182C8CDEF3000BF6E1 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				DCFBEC322C95C1E600AE943A /* Profile */,
+				DC8688382CA83FE1001F1C08 /* Settings */,
 				DCFBEC312C95C18300AE943A /* ChatPage */,
 				DCFBEC302C95C06900AE943A /* ChatList */,
 				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DC8688382CA83FE1001F1C08 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DCFBEC322C95C1E600AE943A /* Profile */,
+				DC8688392CA84004001F1C08 /* SettingsVC.swift */,
+				DC86883B2CA8403F001F1C08 /* SettingsListItemCell.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		DCFAB9D12CA7EA7A005DD86E /* ChatList */ = {
@@ -311,7 +328,7 @@
 				DC24A7F22C850D46009770F8 /* FirebaseFirestore */,
 				DC24A7F42C850D46009770F8 /* FirebaseMessaging */,
 				DC24A7F62C850D46009770F8 /* FirebaseStorage */,
-				DCFAB9D52CA7FDE0005DD86E /* Kingfisher */,
+				DC8688362CA83C68001F1C08 /* Kingfisher */,
 			);
 			productName = wassup;
 			productReference = DC1DE1492C84A9710062F9D8 /* wassup.app */;
@@ -387,7 +404,7 @@
 			mainGroup = DC1DE1402C84A9710062F9D8;
 			packageReferences = (
 				DC24A7EF2C850D46009770F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				DCFAB9D42CA7FDE0005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DC8688352CA83C68001F1C08 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DC1DE14A2C84A9710062F9D8 /* Products */;
 			projectDirPath = "";
@@ -440,6 +457,8 @@
 				DC674EF82CA2133200689793 /* ChatNavigationBar.swift in Sources */,
 				DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */,
 				DC1DE1512C84A9710062F9D8 /* LoginViewController.swift in Sources */,
+				DC86883E2CA84211001F1C08 /* SettingsListItem.swift in Sources */,
+				DC86883A2CA84004001F1C08 /* SettingsVC.swift in Sources */,
 				DC5CCC172C8CDC51000BF6E1 /* DashboardTabBarController.swift in Sources */,
 				DC5CCC1F2C8CFA8C000BF6E1 /* ChatListItemCell.swift in Sources */,
 				DC1DE14D2C84A9710062F9D8 /* AppDelegate.swift in Sources */,
@@ -450,6 +469,7 @@
 				DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */,
 				DC40A76B2CA0A0F00054BA9D /* Constants.swift in Sources */,
 				DC5CCC1A2C8CDFA6000BF6E1 /* ChatListVC.swift in Sources */,
+				DC86883C2CA8403F001F1C08 /* SettingsListItemCell.swift in Sources */,
 				DC5CCC132C8C9B2A000BF6E1 /* RegisterViewController.swift in Sources */,
 				DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */,
 				DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */,
@@ -828,7 +848,7 @@
 				minimumVersion = 11.1.0;
 			};
 		};
-		DCFAB9D42CA7FDE0005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		DC8688352CA83C68001F1C08 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -859,9 +879,9 @@
 			package = DC24A7EF2C850D46009770F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		DCFAB9D52CA7FDE0005DD86E /* Kingfisher */ = {
+		DC8688362CA83C68001F1C08 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCFAB9D42CA7FDE0005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = DC8688352CA83C68001F1C08 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
