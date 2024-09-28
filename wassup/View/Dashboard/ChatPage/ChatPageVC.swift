@@ -17,6 +17,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var chat: Chat? // TODO: Dependency Injection ile non-optional hale getirilecek
     var chatMessages = [ChatMessage]()
+    var pageInitialized = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupNavigationBarTitleView(name: chat?.talker.fullname, imageUrl: chat?.talker.profileImage)
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "wallpaper")
+        backgroundImage.image = UIImage(named: Constants.wallpaper)
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.alpha = 0.5
         tableView.backgroundView = backgroundImage
@@ -44,14 +45,15 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             DispatchQueue.main.async {
                 let indexPath = IndexPath(row: self.chatMessages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: self.pageInitialized)
+                if !self.pageInitialized {self.pageInitialized = true}
             }
         }
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        guard let message = messageTextField.text else { return }
-        if message == "" { return }
+        let rawMessage = messageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let message = rawMessage, message != "" else { return }
         
         chatVM.sendMessage(chatMetadata: chat!.metadata, message: message)
         messageTextField.text = nil
