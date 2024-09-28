@@ -41,6 +41,7 @@
 		DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */; };
 		DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */; };
 		DCFAB9D62CA7FDE0005DD86E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCFAB9D52CA7FDE0005DD86E /* Kingfisher */; };
+		DCFAB9D82CA8068A005DD86E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D72CA8068A005DD86E /* Extensions.swift */; };
 		DCFBEC342C95C66100AE943A /* Talker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC332C95C66100AE943A /* Talker.swift */; };
 		DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC352C95C6E900AE943A /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
 		DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVMTest.swift; sourceTree = "<group>"; };
+		DCFAB9D72CA8068A005DD86E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DCFBEC332C95C66100AE943A /* Talker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talker.swift; sourceTree = "<group>"; };
 		DCFBEC352C95C6E900AE943A /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				DC5CCC102C8C8775000BF6E1 /* AlertUtil.swift */,
+				DCFAB9D72CA8068A005DD86E /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCFAB9D82CA8068A005DD86E /* Extensions.swift in Sources */,
 				DC851A0B2C92E80600D75659 /* ChatPageVM.swift in Sources */,
 				DC674EF82CA2133200689793 /* ChatNavigationBar.swift in Sources */,
 				DC75C4CD2C90EC73006427E1 /* ChatMessage.swift in Sources */,
