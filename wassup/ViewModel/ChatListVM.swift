@@ -15,13 +15,15 @@ class ChatListVM : ObservableObject {
     
     @Published var chatList = [Chat]()
     
-    func listenChats(uid: String) {
-        listenChatMetadataList(uid: uid)
+    private var cancellables = Set<AnyCancellable>()
+    
+    func listenChats() {
+        listenChatMetadataList()
             .flatMap { chatMetadataList in
                 Publishers.MergeMany(
                     chatMetadataList.map { chatMetadata in
                         
-                        self.listenTalker(talkerId: self.getTalkerId(uid: uid, members: chatMetadata.members))
+                        self.listenTalker(talkerId: self.getTalkerId(members: chatMetadata.members))
                             .map { (chatMetadata, $0) }
                     }
                 )
@@ -55,16 +57,10 @@ class ChatListVM : ObservableObject {
         
     }
     
-    func deleteChat(chatId: String) {
-        Firestore.firestore().collection("Chats").document(chatId).delete()
-    }
-    
-    private var cancellables = Set<AnyCancellable>()
-    
-    private func listenChatMetadataList(uid: String) -> AnyPublisher<[ChatMetadata], Error>{
+    private func listenChatMetadataList() -> AnyPublisher<[ChatMetadata], Error>{
         let chatMetadataListPublisher = PassthroughSubject<[ChatMetadata], Error>()
         
-        Firestore.firestore().collection("Chats").whereField("members", arrayContains: uid).order(by: "updatedAt", descending: true).addSnapshotListener { snapshot, error in
+        Firestore.firestore().collection("Chats").whereField("members", arrayContains: User.instance.uid!).order(by: "updatedAt", descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
                 chatMetadataListPublisher.send(completion: .failure(error))
                 return
@@ -94,10 +90,11 @@ class ChatListVM : ObservableObject {
         return talkerPublisher.eraseToAnyPublisher()
     }
     
-    
-    private func getTalkerId(uid:String, members: [String]) -> String {
-        return members[0] != uid ? members[0] : members[1]
+    private func getTalkerId(members: [String]) -> String {
+        return members[0] != User.instance.uid! ? members[0] : members[1]
     }
-    
-    
+  
+    func deleteChat(chatId: String) {
+        Firestore.firestore().collection("Chats").document(chatId).delete()
+    }
 }

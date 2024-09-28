@@ -28,7 +28,25 @@
 		<key>wassup.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>DC1DE1482C84A9710062F9D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC1DE1612C84A9720062F9D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC1DE16B2C84A9720062F9D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

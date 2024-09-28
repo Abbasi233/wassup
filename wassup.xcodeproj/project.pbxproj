@@ -17,7 +17,6 @@
 		DC1DE1572C84A9710062F9D8 /* wassup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1552C84A9710062F9D8 /* wassup.xcdatamodeld */; };
 		DC1DE1592C84A9720062F9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1DE1582C84A9720062F9D8 /* Assets.xcassets */; };
 		DC1DE15C2C84A9720062F9D8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DC1DE15B2C84A9720062F9D8 /* Base */; };
-		DC1DE1672C84A9720062F9D8 /* wassupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1662C84A9720062F9D8 /* wassupTests.swift */; };
 		DC1DE1712C84A9720062F9D8 /* wassupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1702C84A9720062F9D8 /* wassupUITests.swift */; };
 		DC1DE1732C84A9720062F9D8 /* wassupUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */; };
 		DC24A7F12C850D46009770F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DC24A7F02C850D46009770F8 /* FirebaseAuth */; };
@@ -41,6 +40,7 @@
 		DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */; };
 		DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */; };
 		DCDD07AF2CA5978C00AA1235 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD07AE2CA5978C00AA1235 /* Kingfisher */; };
+		DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */; };
 		DCFBEC342C95C66100AE943A /* Talker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC332C95C66100AE943A /* Talker.swift */; };
 		DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC352C95C6E900AE943A /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +74,6 @@
 		DC1DE15B2C84A9720062F9D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC1DE15D2C84A9720062F9D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC1DE1622C84A9720062F9D8 /* wassupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wassupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC1DE1662C84A9720062F9D8 /* wassupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupTests.swift; sourceTree = "<group>"; };
 		DC1DE16C2C84A9720062F9D8 /* wassupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wassupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1DE1702C84A9720062F9D8 /* wassupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITests.swift; sourceTree = "<group>"; };
 		DC1DE1722C84A9720062F9D8 /* wassupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wassupUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMetadata.swift; sourceTree = "<group>"; };
 		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
 		DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVMTest.swift; sourceTree = "<group>"; };
 		DCFBEC332C95C66100AE943A /* Talker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talker.swift; sourceTree = "<group>"; };
 		DCFBEC352C95C6E900AE943A /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +171,7 @@
 		DC1DE1652C84A9720062F9D8 /* wassupTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC1DE1662C84A9720062F9D8 /* wassupTests.swift */,
+				DCFAB9D12CA7EA7A005DD86E /* ChatList */,
 			);
 			path = wassupTests;
 			sourceTree = "<group>";
@@ -250,6 +250,14 @@
 				DC5CCC162C8CDC51000BF6E1 /* DashboardTabBarController.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DCFAB9D12CA7EA7A005DD86E /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */,
+			);
+			path = ChatList;
 			sourceTree = "<group>";
 		};
 		DCFBEC302C95C06900AE943A /* ChatList */ = {
@@ -453,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC1DE1672C84A9720062F9D8 /* wassupTests.swift in Sources */,
+				DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

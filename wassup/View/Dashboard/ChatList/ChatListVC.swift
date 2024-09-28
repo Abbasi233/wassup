@@ -43,7 +43,7 @@ class ChatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             .store(in: &cancellables)
         
-        chatListVM.listenChats(uid: User.instance.uid!)
+        chatListVM.listenChats()
     }
     
     override func viewWillAppear(_ animated: Bool) {
