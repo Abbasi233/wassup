@@ -13,15 +13,9 @@ class ChatPageVM {
     private let db = Firestore.firestore()
     private let encoder = Firestore.Encoder.init()
     
-    var chatMetadata = ChatMetadata.instance
+    private func chatMetadataDocReference(_ chatId: String) -> DocumentReference { db.collection("Chats").document(chatId) }
     
-    private func chatMetadataDocReference(_ chatId: String) -> DocumentReference {
-        return db.collection("Chats").document(chatId)
-    }
-    
-    private func chatColReference(_ chatId: String) -> CollectionReference {
-        return chatMetadataDocReference(chatId).collection("Messages")
-    }
+    private func chatColReference(_ chatId: String) -> CollectionReference { chatMetadataDocReference(chatId).collection("Messages") }
     
     func listenChatMessages(chatId: String, onData: @escaping ([ChatMessage]?) -> Void) {
         chatColReference(chatId).order(by: "createdAt").addSnapshotListener { snapshot, error in
@@ -62,7 +56,9 @@ class ChatPageVM {
         }
     }
     
-    func setMessageSeen(chatMetadata: ChatMetadata) {
-        chatMetadataDocReference(chatMetadata.docId).updateData(["isSeen": true])
+    func setMessageSeen(chat: Chat) {
+        if !chat.isLastMessageOwner {
+            chatMetadataDocReference(chat.metadata.docId).updateData(["isSeen": true])
+        }
     }
 }

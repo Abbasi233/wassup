@@ -11,4 +11,5 @@ struct Constants {
     
     // MARK: images
     static let personImage = "person.crop.circle.fill"
+    static let wallpaper = "wallpaper"
 }

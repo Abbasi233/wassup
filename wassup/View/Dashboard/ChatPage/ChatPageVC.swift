@@ -17,6 +17,7 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var chat: Chat? // TODO: Dependency Injection ile non-optional hale getirilecek
     var chatMessages = [ChatMessage]()
+    var pageInitialized = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,12 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        chatVM.setMessageSeen(chatMetadata: chat!.metadata)
+        chatVM.setMessageSeen(chat: chat!)
         
         setupNavigationBarTitleView(name: chat?.talker.fullname, imageUrl: chat?.talker.profileImage)
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "wallpaper")
+        backgroundImage.image = UIImage(named: Constants.wallpaper)
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.alpha = 0.5
         tableView.backgroundView = backgroundImage
@@ -44,37 +45,18 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             DispatchQueue.main.async {
                 let indexPath = IndexPath(row: self.chatMessages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: self.pageInitialized)
+                if !self.pageInitialized { self.pageInitialized = true }
             }
         }
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        guard let message = messageTextField.text else { return }
-        if message == "" { return }
+        let rawMessage = messageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let message = rawMessage, message != "" else { return }
         
         chatVM.sendMessage(chatMetadata: chat!.metadata, message: message)
         messageTextField.text = nil
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatMessages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatBubbleCell", for: indexPath) as! ChatBubbleCell
-        let chatMessage = chatMessages[indexPath.row]
-        
-        cell.isIncoming = chatMessage.owner != User.instance.uid!
-        cell.messageLabel.text = chatMessage.text
-        cell.timeLabel.text = getTime(dateTime: chatMessage.createdAt.dateValue())
-        return cell
-    }
-    
-    private func getTime(dateTime: Date) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: dateTime)
     }
     
     private func setupNavigationBarTitleView(name: String?, imageUrl: String?) {
@@ -116,5 +98,17 @@ class ChatPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: view)
         self.navigationItem.leftItemsSupplementBackButton = true
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { chatMessages.count }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatBubbleCell", for: indexPath) as! ChatBubbleCell
+        let chatMessage = chatMessages[indexPath.row]
+        
+        cell.isIncoming = chatMessage.owner != User.instance.uid!
+        cell.messageLabel.text = chatMessage.text
+        cell.timeLabel.text = chatMessage.createdAt.dateValue(format: "HH:mm")
+        return cell
     }
 }
