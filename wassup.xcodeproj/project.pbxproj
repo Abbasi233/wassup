@@ -39,8 +39,9 @@
 		DC9DD2F12C8D86860002F526 /* ChatMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DD2F02C8D86860002F526 /* ChatMetadata.swift */; };
 		DCB843702C905BAA00E3F297 /* ChatPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */; };
 		DCBD1EE12C8F4C0C006A9400 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */; };
-		DCDD07AF2CA5978C00AA1235 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD07AE2CA5978C00AA1235 /* Kingfisher */; };
 		DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */; };
+		DCFAB9DB2CA8133B005DD86E /* ChatPageVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFAB9DA2CA8133B005DD86E /* ChatPageVMTest.swift */; };
+		DCFAB9DE2CA81449005DD86E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCFAB9DD2CA81449005DD86E /* Kingfisher */; settings = {ATTRIBUTES = (Required, ); }; };
 		DCFBEC342C95C66100AE943A /* Talker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC332C95C66100AE943A /* Talker.swift */; };
 		DCFBEC362C95C6E900AE943A /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBEC352C95C6E900AE943A /* Chat.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		DCB8436F2C905BAA00E3F297 /* ChatPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVC.swift; sourceTree = "<group>"; };
 		DCBD1EE02C8F4C0C006A9400 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DCFAB9D22CA7EB30005DD86E /* ChatListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVMTest.swift; sourceTree = "<group>"; };
+		DCFAB9DA2CA8133B005DD86E /* ChatPageVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageVMTest.swift; sourceTree = "<group>"; };
 		DCFBEC332C95C66100AE943A /* Talker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talker.swift; sourceTree = "<group>"; };
 		DCFBEC352C95C6E900AE943A /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +109,7 @@
 				DC24A7F72C850D46009770F8 /* FirebaseStorage in Frameworks */,
 				DC24A7F12C850D46009770F8 /* FirebaseAuth in Frameworks */,
 				DC24A7F32C850D46009770F8 /* FirebaseFirestore in Frameworks */,
-				DCDD07AF2CA5978C00AA1235 /* Kingfisher in Frameworks */,
+				DCFAB9DE2CA81449005DD86E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +173,7 @@
 		DC1DE1652C84A9720062F9D8 /* wassupTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCFAB9D92CA81326005DD86E /* ChatPage */,
 				DCFAB9D12CA7EA7A005DD86E /* ChatList */,
 			);
 			path = wassupTests;
@@ -260,6 +263,14 @@
 			path = ChatList;
 			sourceTree = "<group>";
 		};
+		DCFAB9D92CA81326005DD86E /* ChatPage */ = {
+			isa = PBXGroup;
+			children = (
+				DCFAB9DA2CA8133B005DD86E /* ChatPageVMTest.swift */,
+			);
+			path = ChatPage;
+			sourceTree = "<group>";
+		};
 		DCFBEC302C95C06900AE943A /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +319,7 @@
 				DC24A7F22C850D46009770F8 /* FirebaseFirestore */,
 				DC24A7F42C850D46009770F8 /* FirebaseMessaging */,
 				DC24A7F62C850D46009770F8 /* FirebaseStorage */,
-				DCDD07AE2CA5978C00AA1235 /* Kingfisher */,
+				DCFAB9DD2CA81449005DD86E /* Kingfisher */,
 			);
 			productName = wassup;
 			productReference = DC1DE1492C84A9710062F9D8 /* wassup.app */;
@@ -384,7 +395,7 @@
 			mainGroup = DC1DE1402C84A9710062F9D8;
 			packageReferences = (
 				DC24A7EF2C850D46009770F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				DCDD07AD2CA5978C00AA1235 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DCFAB9DC2CA81449005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DC1DE14A2C84A9710062F9D8 /* Products */;
 			projectDirPath = "";
@@ -462,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFAB9D32CA7EB30005DD86E /* ChatListVMTest.swift in Sources */,
+				DCFAB9DB2CA8133B005DD86E /* ChatPageVMTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,7 +836,7 @@
 				minimumVersion = 11.1.0;
 			};
 		};
-		DCDD07AD2CA5978C00AA1235 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		DCFAB9DC2CA81449005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -855,9 +867,9 @@
 			package = DC24A7EF2C850D46009770F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		DCDD07AE2CA5978C00AA1235 /* Kingfisher */ = {
+		DCFAB9DD2CA81449005DD86E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCDD07AD2CA5978C00AA1235 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = DCFAB9DC2CA81449005DD86E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
