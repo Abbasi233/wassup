@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseCore
+import CoreData
 
 struct ChatMetadata: Codable, Equatable {
     
@@ -42,6 +43,10 @@ struct ChatMetadata: Codable, Equatable {
             createdAt: json["createdAt"] as! Timestamp,
             updatedAt: json["updatedAt"] as! Timestamp
         )
+    }
+    
+    func toEntity(context: NSManagedObjectContext) -> ChatMetadataEntity {
+        return ChatMetadataEntity(context: context)
     }
     
 }

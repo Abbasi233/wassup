@@ -9,6 +9,7 @@ import OSLog
 import Combine
 import Foundation
 import FirebaseFirestore
+import CoreData
 
 class ChatListVM : ObservableObject {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "chatListVMLog")
@@ -69,6 +70,8 @@ class ChatListVM : ObservableObject {
             if let snapshot = snapshot {
                 let chatMetadataList = snapshot.documents
                     .map { ChatMetadata.fromJson(docId: $0.documentID, json: $0.data()) }
+                
+                CoreDataManager.save(value: chatMetadataList.first!.toEntity(context: CoreDataManager.context))
                 chatMetadataListPublisher.send(chatMetadataList)
             }
         }
